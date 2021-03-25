@@ -34,8 +34,7 @@ RUN mkdir -p /tmp/itop \
 
 # Add default configuration
 COPY php.ini /usr/local/etc/php/php.ini
-COPY install_new_itop ~/install_new_itop
-RUN chmod 777 ~/install_new_itop
+COPY scripts /
 
 EXPOSE 80
 
