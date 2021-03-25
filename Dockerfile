@@ -25,14 +25,17 @@ RUN apt-get update \
 
 VOLUME /var/www/html
 
+# get itop
+ARG ITOP_VERSION=2.7.3
+ARG ITOP_FILENAME=iTop-2.7.3-6624.zip
+RUN mkdir -p /tmp/itop \
+    && curl -SL -o /tmp/itop/$ITOP_FILENAME https://sourceforge.net/projects/itop/files/itop/$ITOP_VERSION/$ITOP_FILENAME/download \
+    && unzip /tmp/itop/$ITOP_FILENAME -d /tmp/itop/
+
 # Add default configuration
 COPY php.ini /usr/local/etc/php/php.ini
-COPY my_init /etc/init.d/my_init
-RUN chmod 777 /etc/init.d/my_init
-
-# install itop if volume is empty
-# ENV ITOP_VERSION=2.7.3
-# ENV ITOP_FILENAME=iTop-2.7.3-6624.zip
+COPY install_new_itop ~/install_new_itop
+RUN chmod 777 ~/install_new_itop
 
 EXPOSE 80
 
