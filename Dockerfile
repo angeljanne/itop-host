@@ -31,13 +31,5 @@ COPY php.ini /usr/local/etc/php/php.ini
 # install itop if volume is empty
 ENV ITOP_VERSION=2.7.3
 ENV ITOP_FILENAME=iTop-2.7.3-6624.zip
-RUN if [ "`ls -A /var/www/html`" = "" ]; \
-    then \
-        mkdir -p /tmp/itop \
-        && curl -SL -o /tmp/itop/itop.zip https://sourceforge.net/projects/itop/files/itop/$ITOP_VERSION/$ITOP_FILENAME \
-	&& unzip /tmp/itop/itop.zip -d /tmp/itop/ \
-	&& mv /tmp/itop/web/* /var/www/html \
-	&& rm -rf /tmp/itop; \
-    fi
 
 EXPOSE 80
