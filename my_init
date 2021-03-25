@@ -1,3 +1,4 @@
+#!/bin/bash
 
 if [ "`ls -A /var/www/html`" = "" ]; \
 then \
