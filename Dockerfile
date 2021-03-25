@@ -1,5 +1,5 @@
 FROM php:7.2-apache
-MAINTAINER Lyu DongHui <lixiaolang87@qq.com>
+MAINTAINER lixiaolang87 <lixiaolang87@qq.com>
 
 # add helper script
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
@@ -21,6 +21,7 @@ RUN apt-get update \
 
 VOLUME /var/www/html
 
-EXPOSE 80
+# Add default configuration
+COPY php.ini /usr/local/etc/php/php.ini
 
-HEALTHCHECK --interval=5m --timeout=3s CMD curl -f http://localhost/ || exit 1
+EXPOSE 80
