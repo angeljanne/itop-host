@@ -31,9 +31,9 @@ COPY my_init /etc/init.d/my_init
 RUN chmod 777 /etc/init.d/my_init
 
 # install itop if volume is empty
-ENV ITOP_VERSION=2.7.3
-ENV ITOP_FILENAME=iTop-2.7.3-6624.zip
+# ENV ITOP_VERSION=2.7.3
+# ENV ITOP_FILENAME=iTop-2.7.3-6624.zip
 
 EXPOSE 80
 
-ENTRYPOINT ["/etc/init.d/my_init"]
+# ENTRYPOINT ["/etc/init.d/my_init"]
