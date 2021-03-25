@@ -1,6 +1,10 @@
 FROM php:7.2-apache
 MAINTAINER lixiaolang87 <lixiaolang87@qq.com>
 
+# set timezone
+ENV TZ=Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 # add helper script
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 
