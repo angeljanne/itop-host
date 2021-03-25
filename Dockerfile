@@ -37,7 +37,7 @@ RUN if [ "`ls -A /var/www/html`" = "" ]; \
         && curl -SL -o /tmp/itop/itop.zip https://sourceforge.net/projects/itop/files/itop/$ITOP_VERSION/$ITOP_FILENAME \
 	&& unzip /tmp/itop.zip -d /tmp/itop/ \
 	&& mv /tmp/itop/web/* /var/www/html \
-	&& rm -rf /tmp/itop \
+	&& rm -rf /tmp/itop; \
     fi
 
 EXPOSE 80
