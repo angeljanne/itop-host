@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ "`ls -A /var/www/html`" = "" ]
+then
+    mv /tmp/itop/web/* /var/www/html 
+    rm -rf /tmp/itop
+    chmod 777 /var/www/html/log
+    chmod 777 /var/www/html/data
+    echo "new itop installed."
+else
+    echo "Directory /var/www/html is not empty."
+fi
